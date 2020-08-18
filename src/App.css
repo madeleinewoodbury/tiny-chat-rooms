@@ -31,6 +31,16 @@ a {
   color: var(--color-4);
 }
 
+.bg-primary {
+  background-color: var(--color-2);
+  color: var(--color-4);
+}
+
+.bg-secondary {
+  background-color: var(--color-3);
+  color: white;
+}
+
 .mt-1 {
   margin-top: 1rem;
 }
@@ -146,6 +156,62 @@ a {
   border-radius: 0;
   border-bottom-right-radius: 8px;
   width: 20%;
+}
+
+.messages {
+  padding: 1rem 0;
+  overflow: auto;
+  flex: auto;
+}
+
+.message-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 3px;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.message-box {
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.message-text {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+
+/* .messageText img {
+  vertical-align: middle;
+} */
+
+.sent-text {
+  display: flex;
+  align-items: center;
+  font-family: Helvetica;
+  color: var(--color-3);
+  letter-spacing: 0.3px;
+}
+
+.sent-text.pr {
+  padding-right: 0.75rem;
+}
+
+.sent-text.pl {
+  padding-left: 0.75rem;
 }
 
 @media screen and (max-width: 1200px) {
