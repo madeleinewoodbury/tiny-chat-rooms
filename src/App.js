@@ -5,10 +5,12 @@ import Chat from './components/Chat';
 import './App.css';
 
 const App = () => (
-  <Router>
-    <Route exact path="/" component={Join} />
-    <Route path="/chat" component={Chat} />
-  </Router>
+  <section className="container">
+    <Router>
+      <Route exact path="/" component={Join} />
+      <Route path="/chat" component={Chat} />
+    </Router>
+  </section>
 );
 
 export default App;
