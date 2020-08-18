@@ -15,6 +15,7 @@ const Join = () => {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          maxLength="10"
         />
       </div>
       <div>

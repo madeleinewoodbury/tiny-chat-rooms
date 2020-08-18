@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import InfoBar from './InfoBar';
@@ -7,19 +8,30 @@ import Input from './Input';
 
 let socket;
 
-const Chat = ({ location }) => {
+// if (process.env.NODE_ENV !== 'production') {
+//   ENDPOINT = process.env.REACT_APP_ENDPOINT;
+// } else {
+//   ENDPOINT = 'localhost:5000';
+// }
+
+const Chat = ({ history, location }) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'localhost:5000';
+  const [errorMsg, setErrorMsg] = useState('');
+  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
     socket = io(ENDPOINT);
-    socket.emit('join', { name, room }, () => {});
+    socket.emit('join', { name, room }, ({ error }) => {
+      if (error !== null) {
+        setErrorMsg(error);
+      }
+    });
 
     setName(name);
     setRoom(room);
@@ -49,7 +61,7 @@ const Chat = ({ location }) => {
     }
   };
 
-  return (
+  return errorMsg === '' ? (
     <div className="chat-container">
       <InfoBar room={room} users={users} />
       <Messages messages={messages} name={name} />
@@ -58,6 +70,17 @@ const Chat = ({ location }) => {
         setMessage={setMessage}
         sendMessage={sendMessage}
       />
+    </div>
+  ) : (
+    <div className="error-container">
+      <div>
+        <h1>Sorry...</h1>
+        <p>{errorMsg}</p>
+      </div>
+
+      <Link to="/" className="btn go-back">
+        Go Back
+      </Link>
     </div>
   );
 };
