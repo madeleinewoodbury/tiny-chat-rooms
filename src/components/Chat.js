@@ -8,12 +8,6 @@ import Input from './Input';
 
 let socket;
 
-// if (process.env.NODE_ENV !== 'production') {
-//   ENDPOINT = process.env.REACT_APP_ENDPOINT;
-// } else {
-//   ENDPOINT = 'localhost:5000';
-// }
-
 const Chat = ({ history, location }) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
@@ -21,7 +15,10 @@ const Chat = ({ history, location }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [errorMsg, setErrorMsg] = useState('');
-  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+  const ENDPOINT =
+    process.env.NODE_ENV === 'production'
+      ? process.env.REACT_APP_ENDPOINT
+      : 'localhost:5000';
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
