@@ -10,6 +10,7 @@ let socket;
 const Chat = ({ location }) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [users, setUsers] = useState([]);
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const ENDPOINT = 'localhost:5000';
@@ -33,7 +34,12 @@ const Chat = ({ location }) => {
     socket.on('message', (message) => {
       setMessages((messages) => [...messages, message]);
     });
-  }, [messages]);
+
+    socket.on('roomData', (roomData) => {
+      const userData = roomData.users.map((user) => user.name);
+      setUsers(userData);
+    });
+  }, []);
 
   // Send message
   const sendMessage = (e) => {
@@ -45,7 +51,7 @@ const Chat = ({ location }) => {
 
   return (
     <div className="chat-container">
-      <InfoBar room={room} />
+      <InfoBar room={room} users={users} />
       <Messages messages={messages} name={name} />
       <Input
         message={message}

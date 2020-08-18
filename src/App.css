@@ -12,6 +12,8 @@
   --color-5: #fae060;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -89,12 +91,28 @@ a {
 
 .info-bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   background: var(--color-2);
   border-radius: 4px 4px 0 0;
-  height: 60px;
+  height: 80px;
   width: 100%;
+}
+
+.info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50%;
+  padding-top: 10px;
+}
+
+.info-bottom {
+  padding: 0.5rem 0;
+  height: 50%;
+}
+
+.info-bottom i {
+  margin-right: 5px;
 }
 
 .left-inner-container {
@@ -194,10 +212,6 @@ a {
   word-wrap: break-word;
 }
 
-/* .messageText img {
-  vertical-align: middle;
-} */
-
 .sent-text {
   display: flex;
   align-items: center;
@@ -239,5 +253,9 @@ a {
 @media screen and (max-width: 500px) {
   .inner-container {
     width: 80%;
+  }
+
+  .text-container {
+    display: none;
   }
 }
