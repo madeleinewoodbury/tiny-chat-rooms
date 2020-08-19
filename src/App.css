@@ -290,4 +290,33 @@ a {
   .text-container {
     display: none;
   }
+
+  .chat-container {
+    width: 90%;
+    height: 80%;
+  }
+
+  .message-box {
+    padding: 10px 10px;
+    margin-bottom: 5px;
+    display: flex;
+  }
+
+  .message-text {
+    font-size: 1em;
+  }
+
+  .hide-xs {
+    display: none;
+  }
+
+  .send-btn {
+    width: 30%;
+  }
+
+  .send-input {
+    padding: 1.2rem 1.2rem;
+    width: 80%;
+    font-size: 1.1em;
+  }
 }

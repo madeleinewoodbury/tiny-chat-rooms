@@ -15,7 +15,8 @@ const InfoBar = ({ room, users }) => {
       </div>
       <div className="info-bottom">
         <strong>
-          <i className="fas fa-users"></i> People chatting:{' '}
+          <i className="fas fa-users"></i>{' '}
+          <span className="hide-xs">People chatting:</span>{' '}
         </strong>{' '}
         {users &&
           users.map((user, idx) => (
