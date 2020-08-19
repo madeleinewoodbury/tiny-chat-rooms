@@ -1,8 +1,10 @@
-# Tiny Chat App
+# Tiny Chat Rooms
 
 > A Realtime Chat Application built with React on the front-end and Node.js and Socket.io on the server side.
 
 ## [View App](https://tiny-chat-rooms.netlify.app/)
+
+- [View the source code for the server here](https://github.com/madeleinewoodbury/chat-app-server)
 
 ### Usage
 
