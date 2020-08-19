@@ -199,9 +199,11 @@ a {
 }
 
 .message-box {
-  border-radius: 15px;
-  padding: 5px 10px;
-  display: inline-block;
+  border-radius: 5px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 80%;
 }
 
@@ -211,6 +213,8 @@ a {
   float: left;
   font-size: 1.1em;
   word-wrap: break-word;
+  margin: 0;
+  padding: 0;
 }
 
 .sent-text {
